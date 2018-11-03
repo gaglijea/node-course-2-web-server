@@ -26,7 +26,7 @@ var logdata = `${now}: ${request.ip} ${request.method} ${request.url}`;
 });
 
 app.use((request, response, next) => {
-  response.render('maintenance.hbs');
+  response.render('home.hbs');
 });
 
 app.use(express.static(__dirname + '/public'));
