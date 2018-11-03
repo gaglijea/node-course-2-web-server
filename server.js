@@ -26,7 +26,8 @@ var logdata = `${now}: ${request.ip} ${request.method} ${request.url}`;
 });
 
 app.use((request, response, next) => {
-  response.render('home.hbs');
+  //response.render('maintenance.hbs');
+  next();   //cette reponse est essentielle sinon le site passe pas à la suite
 });
 
 app.use(express.static(__dirname + '/public'));
@@ -60,6 +61,7 @@ app.get('/bad', (request, response) => {
     errorMessage: 'Unable to fulfil request'
   });
 });
+
 
 app.listen(port, () => {
   console.log(`Server is up and running on port ${port}`);
